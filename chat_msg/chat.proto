@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "./chat";
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.helloworld";
+option java_outer_classname = "HelloWorldProto";
+
+package message_chat;
+
+service Chat {
+  // Sends a message 
+  rpc SendMessage (MessageRequest) returns (Message) {}
+}
+
+// The request message containing the user's name.
+message MessageRequest {
+  string msg  = 1;
+}
+
+// The response message containing the greetings
+message Message {
+  string msg = 1;
+}
